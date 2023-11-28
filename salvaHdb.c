@@ -42,6 +42,17 @@ int main(int argc,char *argv[]){
         char *texto = argv[5];
         fputs(strcat(texto,"\n"),archivo);
         fclose(archivo);
+    }else if(strcmp(operacion,"remove") == 0){
+        char *documento = argv[4];
+        char ruta[100];
+        strcpy(ruta,"db/");
+        strcat(ruta,basededatos);
+        strcat(ruta,"/");
+        strcat(ruta,coleccion);
+        strcat(ruta,"/");
+        strcat(ruta,documento);
+        strcat(ruta,".json");
+        archivo = remove(ruta);
     }else if(strcmp(operacion,"create_collection") == 0){
         char rutacoleccion[100];
         strcpy(rutacoleccion,"db/");
