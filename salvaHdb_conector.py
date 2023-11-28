@@ -29,7 +29,19 @@ class SalvaHdb:
         else:
             return("KO")
 
-##insert_text
+    def remove_file(self,coleccion,documento):
+        self.operacion = "remove_file"
+        self.coleccion = coleccion
+        self.documento = documento
+        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+''
+        resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+
+        if resultado.returncode == 0:
+            return("OK")
+        else:
+            return("KO")
+
+
 ##remove_file
 ##create_collection
 ##remove_collection
