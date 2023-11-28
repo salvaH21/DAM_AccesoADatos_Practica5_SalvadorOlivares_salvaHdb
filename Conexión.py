@@ -11,10 +11,12 @@ class SalvaHdb:
         self.coleccion = coleccion
         self.documento = documento
         self.contenido = contenido
-            comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+operacion+' '+basededatos+' '+coleccion+' '+documento+' "'+contenido+'"'
-            resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+operacion+' '+basededatos+' '+coleccion+' '+documento+' "'+contenido+'"'
+        resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
 
-            if resultado.returncode == 0:
-                return("OK")
-            else:
-                return("KO")
+        if resultado.returncode == 0:
+            return("OK")
+        else:
+            return("KO")
+
+Conexion1 = SalvaHdb("pruebas")
