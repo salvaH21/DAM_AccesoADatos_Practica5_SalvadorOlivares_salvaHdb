@@ -41,8 +41,27 @@ class SalvaHdb:
         else:
             return("KO")
 
+    def create_collection(self,coleccion):
+        self.operacion = "create_collection"
+        self.coleccion = coleccion
+        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+''
+        resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
 
-##remove_file
-##create_collection
-##remove_collection
+        if resultado.returncode == 0:
+            return("OK")
+        else:
+            return("KO")
+
+    def remove_collection(self,coleccion):
+        self.operacion = "remove_collection"
+        self.coleccion = coleccion
+        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+''
+        resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+
+        if resultado.returncode == 0:
+            return("OK")
+        else:
+            return("KO")
+
+
 ##select
