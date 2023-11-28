@@ -5,8 +5,9 @@ from salvaHdb_conector import SalvaHdb
 
 
 Conexion1 = SalvaHdb("pruebas")
-#Conexion1.insert_file("pelis","prueba1","another prueba")
-#Conexion1.insert_text("pelis","prueba","segunda prueba")
+#Conexion1.insert_file("carpeta","prueba1","hola salva")
+#Conexion1.insert_text("carpeta","prueba1","tercera prueba")
 #Conexion1.remove_file("pelis","prueba1")
-#Conexion1.create_collection("mas")
-Conexion1.remove_collection("pelis")
+#Conexion1.create_collection("carpeta")
+#Conexion1.remove_collection("pelis")
+Conexion1.select("carpeta","prueba1")
