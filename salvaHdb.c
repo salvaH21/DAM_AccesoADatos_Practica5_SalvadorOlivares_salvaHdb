@@ -28,7 +28,7 @@ int main(int argc,char *argv[]){
         }
         fclose(archivo);
         
-    }else if(strcmp(operacion,"insert") == 0){
+    }else if(strcmp(operacion,"insert_file") == 0){
         char *documento = argv[4];
         char ruta[100];
         strcpy(ruta,"db/");
@@ -42,7 +42,7 @@ int main(int argc,char *argv[]){
         char *texto = argv[5];
         fputs(strcat(texto,"\n"),archivo);
         fclose(archivo);
-    }else if(strcmp(operacion,"remove") == 0){
+    }else if(strcmp(operacion,"remove_file") == 0){
         char *documento = argv[4];
         char ruta[100];
         strcpy(ruta,"db/");
@@ -61,12 +61,24 @@ int main(int argc,char *argv[]){
         strcat(rutacoleccion,coleccion);
         printf(rutacoleccion);
         if(mkdir(rutacoleccion,0777) == 0){
-            printf("ok");
+            printf("Colección creada correctamente");
         }else{
-            printf("ko");
+            printf("No se ha podido crear");
+        }
+    }else if(strcmp(operacion,"remove_collection") == 0){
+        char rutacoleccion[100];
+        strcpy(rutacoleccion,"db/");
+        strcat(rutacoleccion,basededatos);
+        strcat(rutacoleccion,"/");
+        strcat(rutacoleccion,coleccion);
+        printf(rutacoleccion);
+        if(rmdir(rutacoleccion,0777) == 0){
+            printf("Coleccion borrada");
+        }else{
+            printf("No se ha podido borrar");
         }
     }else{
-        printf("operación no válida");
+        printf("Operación no válida");
     }
     
     
