@@ -42,6 +42,20 @@ int main(int argc,char *argv[]){
         char *texto = argv[5];
         fputs(strcat(texto,"\n"),archivo);
         fclose(archivo);
+    }else if(strcmp(operacion,"insert_text") == 0){
+        char *documento = argv[4];
+        char ruta[100];
+        strcpy(ruta,"db/");
+        strcat(ruta,basededatos);
+        strcat(ruta,"/");
+        strcat(ruta,coleccion);
+        strcat(ruta,"/");
+        strcat(ruta,documento);
+        strcat(ruta,".json");
+        archivo = fopen(ruta,"a");
+        char *texto = argv[5];
+        fputs(strcat(texto,"\n"),archivo);
+        fclose(archivo);
     }else if(strcmp(operacion,"remove_file") == 0){
         char *documento = argv[4];
         char ruta[100];
@@ -61,7 +75,7 @@ int main(int argc,char *argv[]){
         strcat(rutacoleccion,coleccion);
         printf(rutacoleccion);
         if(mkdir(rutacoleccion,0777) == 0){
-            printf("Colección creada correctamente");
+            printf("Coleccion creada correctamente");
         }else{
             printf("No se ha podido crear");
         }
@@ -78,10 +92,8 @@ int main(int argc,char *argv[]){
             printf("No se ha podido borrar");
         }
     }else{
-        printf("Operación no válida");
+        printf("Operacion no valida");
     }
-    
-    
     
     return 0;
 }
