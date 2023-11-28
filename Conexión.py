@@ -6,12 +6,12 @@ import subprocess
 class SalvaHdb:
     def __init__(self,basededatos):
         self.basededatos = basededatos
-    def insert(self,coleccion,documento,contenido):
+    def insert_file(self,coleccion,documento,contenido):
         self.operacion = "insert_file"
         self.coleccion = coleccion
         self.documento = documento
         self.contenido = contenido
-        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+operacion+' '+basededatos+' '+coleccion+' '+documento+' "'+contenido+'"'
+        comando = '"C:\\Users\\salva\\Documents\\GitHub2\\salvaHdb\\salvaHdb.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+' "'+self.contenido+'"'
         resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
 
         if resultado.returncode == 0:
@@ -20,3 +20,4 @@ class SalvaHdb:
             return("KO")
 
 Conexion1 = SalvaHdb("pruebas")
+Conexion1.insert_file("libros","comedia","monólogo1")
