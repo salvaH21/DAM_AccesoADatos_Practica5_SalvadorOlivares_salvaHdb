@@ -27,7 +27,6 @@ int main(int argc,char *argv[]){
             printf("Linea: %s",linea);
         }
         fclose(archivo);
-        
     }else if(strcmp(operacion,"insert_file") == 0){
         char *documento = argv[4];
         char ruta[100];
